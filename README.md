@@ -1,26 +1,26 @@
 
 ## Android-PickerView
 
-[![Bintray](https://img.shields.io/bintray/v/contrarywind/maven/Android-PickerView.svg)](https://bintray.com/contrarywind/maven/Android-PickerView)
 [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg)](https://android-arsenal.com/api?level=9) 
-[![license](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Download](https://api.bintray.com/packages/contrarywind/maven/Android-PickerView/images/download.svg) ](https://bintray.com/contrarywind/maven/Android-PickerView/_latestVersion)
 
 [![GitHub stars](https://img.shields.io/github/stars/Bigkoo/Android-PickerView.svg?style=social)](https://github.com/Bigkoo/Android-PickerView/stargazers) [![GitHub forks](https://img.shields.io/github/forks/Bigkoo/Android-PickerView.svg?style=social)](https://github.com/Bigkoo/Android-PickerView/network) [![GitHub watchers](https://img.shields.io/github/watchers/Bigkoo/Android-PickerView.svg?style=social)](https://github.com/Bigkoo/Android-PickerView/watchers)
 
 ### [English Document](https://github.com/Bigkoo/Android-PickerView/blob/master/README-en.md)
-</br>
 
-#### 更多详请及注意事项，请查看 [Wiki文档](https://github.com/Bigkoo/Android-PickerView/wiki)
+### 注意事项、详请使用方式、更新日志等，请查看 [Wiki文档](https://github.com/Bigkoo/Android-PickerView/wiki)
+**Wiki文档，Wiki文档，Wiki文档 !~ 重要的事情说三遍**
 
 #### 对于使用上有任何疑问或优化建议等，欢迎加入QQ群讨论交流技术问题。
 
-交流群1： 387051294（已满）
+交流群1： 387051294（推荐）
 
-交流群2： 219962328
+交流群2： 219962328（已满）
 
 ## 介绍
 
-这是一款仿iOS的PickerView控件，有时间选择器和选项选择器，3.x新版本的详细特性如下：
+这是一款仿iOS的PickerView控件，有时间选择器和选项选择器，新版本的详细特性如下：
  
 ——TimePickerView  时间选择器，支持年月日时分，年月日，年月，时分等格式。   
 ——OptionsPickerView  选项选择器，支持一，二，三级选项选择，并且可以设置是否联动 。
@@ -37,6 +37,7 @@
 * Item的文字长度过长时，文字会自适应缩放到Item的长度，避免显示不完全的问题
 * 支持Dialog 模式。
 * 支持自定义设置容器。
+* 实时回调。
 
 
 ![TimePicker.gif](https://github.com/Bigkoo/Android-PickerView/blob/master/preview/timepicker.gif)
@@ -60,23 +61,29 @@
   startDate.set(2013,0,1);
   endDate.set(2020,11,1);
   
-#### V3.2.7版本更新说明（2017-11-15）
-* 修复dialog模式中，在build之后，重新设定cancelable不生效的问题。
-* 优化时间选择器，修复startYear= endYear时，滑动年份导致日期设置限制失效问题。
-* 新增X偏移量设定，优化视觉效果。
-* 新增农历模式。
+ #### V4.1.7 版本更新说明（2019-1-10）
+ -  修复 WheelView在初始化时，数据为空导致height=0，造成一直显示不出来的问题。
+ -  新增取消按钮的点击事件监听入口。
+ -  参数注解添加，规范数据类型。
+ -  废弃setBackgroundId方法， 更新方法命名为 setOutSideColor。
+ 
+ #### V4.1.6 版本更新说明（2018-7-24）
+ -  优化wheelview 分割线设置 0x00000000 透明色不生效的问题。
+ -  优化部分文字基线位置偏低，导致选中项文字显示不全问题，如 "g" 字母。
 
-#### 更多历史版本详情，请查阅：[更新说明（3.x版本）](https://github.com/Bigkoo/Android-PickerView/wiki/%E6%9B%B4%E6%96%B0%E8%AF%B4%E6%98%8E%EF%BC%883.x%E7%89%88%E6%9C%AC%EF%BC%89) 
+#### 更多历史版本详情，请查阅：[更新日志（4.x版本）](https://github.com/Bigkoo/Android-PickerView/wiki/更新日志（4.x版本）) 
 
 #### 方法名与参数请查阅：[方法名与参数说明文档](https://github.com/Bigkoo/Android-PickerView/wiki/%E6%96%B9%E6%B3%95%E5%90%8D%E4%B8%8E%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%883.x%E7%89%88%E6%9C%AC%EF%BC%89)
 
 </br>
 
-### **使用步骤：**
+### **如何使用：**
+
+#### Android-PickerView 库使用示例：
 
 #### 1.添加Jcenter仓库 Gradle依赖：
 ```java
-compile 'com.contrarywind:Android-PickerView:3.2.7'
+compile 'com.contrarywind:Android-PickerView:4.1.7'
 ```
 或者
 
@@ -85,28 +92,26 @@ compile 'com.contrarywind:Android-PickerView:3.2.7'
 <dependency>
 <groupId>com.contrarywind</groupId>
 <artifactId>Android-PickerView</artifactId>
-<version>3.2.7</version>
+<version>4.1.7</version>
 <type>pom</type>
 </dependency>
 ```
-#### 2.在Activity中添加如下代码：
+
+#### 2.在项目中添加如下代码：
 
 ```java
 //时间选择器
-TimePickerView pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
-            @Override
-            public void onTimeSelect(Date date,View v) {//选中事件回调
-                tvTime.setText(getTime(date));
-            }
-        })
-             .build();
- pvTime.setDate(Calendar.getInstance());//注：根据需求来决定是否使用该方法（一般是精确到秒的情况），此项可以在弹出选择器的时候重新设置当前时间，避免在初始化之后由于时间已经设定，导致选中时间与当前时间不匹配的问题。
- pvTime.show();
+TimePickerView pvTime = new TimePickerBuilder(MainActivity.this, new OnTimeSelectListener() {
+                           @Override
+                           public void onTimeSelect(Date date, View v) {
+                               Toast.makeText(MainActivity.this, getTime(date), Toast.LENGTH_SHORT).show();
+                           }
+                       }).build();
 ```
 
 ```java
 //条件选择器
- OptionsPickerView pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
+ OptionsPickerView pvOptions = new OptionsPickerBuilder(MainActivity.this, new OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
                 //返回的分别是三个级别的选中位置
@@ -133,7 +138,7 @@ TimePickerView pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTi
   startDate.set(2013,0,1);
   endDate.set(2020,11,31);
 
- pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTimeSelectListener() {
+ pvTime = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date,View v) {//选中事件回调
                 tvTime.setText(getTime(date));
@@ -161,7 +166,7 @@ TimePickerView pvTime = new TimePickerView.Builder(this, new TimePickerView.OnTi
 ```
 
 ```java
-pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
+pvOptions = new  OptionsPickerBuilder(this, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3 ,View v) {
                 //返回的分别是三个级别的选中位置
@@ -170,7 +175,13 @@ pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptions
                         + options3Items.get(options1).get(option2).get(options3).getPickerViewText();
                 tvOptions.setText(tx);
             }
-        })
+        }) .setOptionsSelectChangeListener(new OnOptionsSelectChangeListener() {
+                              @Override
+                              public void onOptionsSelectChanged(int options1, int options2, int options3) {
+                                  String str = "options1: " + options1 + "\noptions2: " + options2 + "\noptions3: " + options3;
+                                  Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
+                              }
+                          })
                 .setSubmitText("确定")//确定按钮文字
                 .setCancelText("取消")//取消按钮文字
                 .setTitleText("城市选择")//标题
@@ -189,6 +200,7 @@ pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptions
                 .setSelectOptions(1, 1, 1)  //设置默认选中项
                 .setOutSideCancelable(false)//点击外部dismiss default true
                 .isDialog(true)//是否显示为对话框样式
+                .isRestoreItem(true)//切换时是否还原，设置默认选中第一项。
                 .build();
 
         pvOptions.setPicker(options1Items, options2Items, options3Items);//添加数据源
@@ -198,7 +210,7 @@ pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptions
 ```java
         // 注意：自定义布局中，id为 optionspicker 或者 timepicker 的布局以及其子控件必须要有，否则会报空指针
         // 具体可参考demo 里面的两个自定义布局
-        pvCustomOptions = new OptionsPickerView.Builder(this, new OptionsPickerView.OnOptionsSelectListener() {
+        pvCustomOptions = new OptionsPickerBuilder(this, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 //返回的分别是三个级别的选中位置
@@ -240,9 +252,46 @@ pvOptions = new  OptionsPickerView.Builder(this, new OptionsPickerView.OnOptions
         pvCustomOptions.setPicker(cardItem);//添加数据
 ```
 
-#### 5.对使用还有疑问的话，可参考Demo代码
+#### 5.对使用还有疑问的话，可参考demo代码
 [请戳我查看demo代码](https://github.com/Bigkoo/Android-PickerView/blob/master/app/src/main/java/com/bigkoo/pickerviewdemo/MainActivity.java)
 
+
+
+#### 6.若只需要WheelView基础控件自行扩展实现逻辑，可直接添加基础控件库，Gradle 依赖：
+ 
+```java
+compile 'com.contrarywind:wheelview:4.0.9'
+```
+
+#### WheelView 使用代码示例：
+
+xml布局：
+```xml
+ <com.contrarywind.view.WheelView
+            android:id="@+id/wheelview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+```
+
+Java 代码：
+```java
+WheelView wheelView = findViewById(R.id.wheelview);
+
+        wheelView.setCyclic(false);
+
+        final List<String> mOptionsItems = new ArrayList<>();
+        mOptionsItems.add("item0");
+        mOptionsItems.add("item1");
+        mOptionsItems.add("item2");
+  
+        wheelView.setAdapter(new ArrayWheelAdapter(mOptionsItems));
+        wheelView.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int index) {
+                Toast.makeText(MainActivity.this, "" + mOptionsItems.get(index), Toast.LENGTH_SHORT).show();
+            }
+        });
+```
 
 
 ### 效果图（招行信用卡的“掌上生活”里面条件选择器他们用的就是我这个库，大家可以当实际项目参考）
